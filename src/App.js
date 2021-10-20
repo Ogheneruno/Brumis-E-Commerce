@@ -6,7 +6,7 @@ import Pay from './pay/Pay';
 function App() {
   return (
     <div className="App">
-      
+      <Pay />
     </div>
   );
 }

@@ -1,0 +1,86 @@
+.card-holder {
+    border: 2px solid whitesmoke;
+    box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    margin: 10rem auto;
+    max-width: 65vw;
+    padding: 8px 3px 3px;
+    -webkit-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    -moz-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+}
+
+.card {
+    border: 0 solid whitesmoke;
+    box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    display: flex;
+    /* flex-direction: column; */
+    margin: 0 auto;
+    -webkit-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    -moz-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+}
+
+.card-wrapper {
+    flex: 1.5;
+}
+
+.card-left {
+    background-color: rgba(241, 241, 241, 0.2);
+    /* border-bottom: 1px solid rgba(44, 44, 44, 0.7); */
+    display: grid;
+    /* flex: 1.5; */
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+    margin: 0 0.6rem 1rem;
+    align-items: center;
+}
+
+.card-left__one {
+    display: flex;
+}
+
+.card-one__text > p {
+    font-size: 0.7rem;
+    font-weight: lighter;
+}
+
+.card-left__two {
+    margin: 1rem;
+}
+
+.card-left__two > input {
+    border: none;
+    height: 2rem;
+    width: 50%;
+    margin: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+.card-left__three {
+    width: 50%;
+}
+
+.card-left__three > a {
+    text-decoration: none;
+    color: black;
+}
+
+.span {
+    padding-left: 1rem;
+}
+
+/* .card-left__bottom {
+    border: 1px solid rgba(44, 44, 44, 0.7);
+    margin: 0.5rem 0 2rem;
+    width: 10rem;
+} */
+
+.card-right {
+    background-color: rgb(44, 44, 44);
+    flex: 1;
+}
+
+
+.card__bottom {
+    background-color: black;
+    border: 4px solid;
+    clip-path: 80% 0 0 80%;
+}
+
