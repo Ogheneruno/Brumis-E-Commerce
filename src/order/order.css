@@ -90,11 +90,43 @@ input{
     font-weight:light;
 }
 
+@media (max-width:600px){
+    .box{
+        top:0;
+        left:0;
+        rigth:0;
+        background-image:linear-gradient(-243deg, #ef143c, #ef143c 40%, #fff 40%, #fff);
+        width:500px;
+        height:500px;
 
-@media only screen and(max-width:600px){
-    .cartDiv{
-        display:grid;
-        grid-template-columns: 1fr 3fr;
     }
+    .productImg{ 
+    height:300px;
+    width:300px;
+    position:absolute;
+    top:120px;
+    display:flex;
+    left:20px;
+    bottom:120px;  
+}
+.mainProductCart{
+    display:grid;
+    grid-template-columns:repeat(1, 1fr);
+    justify-content:center;;
+    padding-left:4rem;
+    marfin-left:3rem;
+    grid-template-areas:'';
 
 }
+.cartDiv{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    text-align:center;
+}
+.cartIcon{
+    display:none;
+}
+}
+
+

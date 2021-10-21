@@ -24,12 +24,13 @@ const Order = () => {
                 <img src={cosmetic} className='productImg'/>
             </div>
         </div>
+
         <div className='mainProductCart'>
             <div className=''>
             <br/>
         <br/>
         <br/>
-                <div className='ratingIcon'><span class="iconify" data-icon="emojione:star"></span> <span class="iconify" data-icon="emojione:star"></span>
+                <div className='ratingIcons'><span class="iconify" data-icon="emojione:star"></span> <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
