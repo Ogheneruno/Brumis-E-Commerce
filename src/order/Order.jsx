@@ -19,12 +19,16 @@ const Order = () => {
                 <div className='cartDiv'>
         <div className='paBackground'>
             <div className='brandName'>
+            <br/>
                 <h1 className='textWhite bold'>BRUMIS</h1>
                 <img src={cosmetic} className='productImg'/>
             </div>
         </div>
         <div className='mainProductCart'>
             <div className=''>
+            <br/>
+        <br/>
+        <br/>
                 <div className='ratingIcon'><span class="iconify" data-icon="emojione:star"></span> <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
@@ -32,7 +36,6 @@ const Order = () => {
             </div>
             <div className='productDetails'>
                 <h2 className='productName bagTitle'>Bag C De Cartier</h2>
-                <h2 className='productName'>Bag</h2>
                 {number ? <p> $ {price *  number * 10} </p> : 266.88}
                 <p className='textBlack productName'>Color</p>
                 <p className='inline'>Products
@@ -42,18 +45,20 @@ const Order = () => {
                 </p>
             </div>
             <div className ='productQuantity'>
-                <h2>Qantity</h2>
+                <h2 className='small'>Qantity</h2>
                 <input type='number'
                  value={number}
                   onChange={(e) => setNumber(+e.target.value)}/>
                 <br/>
             </div>
             <div className='favoriteIcon'>
+            <br/>
+            <span class="iconify" data-icon="carbon:favorite" data-width="15"></span> Add to favorite
             </div>
-            <div className='productBtn bgDark textWhite'></div>
-        
-
-
+            <div className='productBtn'>
+            <button className='btnDark '>Add to cart</button>
+            </div>
+            {/*Icons Grid */}
             </div>
             <div className='cartIcon'>
             <span class="iconify py-2" data-icon="akar-icons:search"></span> 

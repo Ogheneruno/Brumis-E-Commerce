@@ -62,8 +62,32 @@ body{
     margin-top:15px;
 }
 .bagTitle{
-    margin-top:2rem;
-    padding:3rem 0;
+    margin-top:20px;
+    padding:10px 0;
+}
+.btnDark{
+    margin-top:20px;
+    background:black;
+    color:white;
+    padding:10px;
+    font-weight:bolder;
+    font-size:14px;
+    width:140px;
+}
+input{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:80px;
+    color:black;
+    background:crimson;
+    padding:8px;
+    margin:2px 0;
+}
+.small{
+    font-size:16px;
+    margin:1rem 0;
+    font-weight:light;
 }
 
 
