@@ -110,7 +110,7 @@ const Arrival = () => {
 
                 <div className={classes.arrivalImg}>
                   <div className="card-container">
-                    <div className="card1">
+                    <div className="card">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic2} />
                         </div>
@@ -124,7 +124,7 @@ const Arrival = () => {
                         </div>          
                     </div>
 
-                    <div className="card1">
+                    <div className="card">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic4} />
                         </div>
@@ -138,7 +138,7 @@ const Arrival = () => {
                         </div>          
                     </div>
 
-                    <div className="card1">
+                    <div className="card">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic15} />
                         </div>

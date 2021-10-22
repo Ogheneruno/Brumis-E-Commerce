@@ -43,7 +43,8 @@ const Pay = () => {
 
 
     return (
-
+        <>
+        <div>
         <div className="card-holder">
             
             <div className="card">
@@ -186,6 +187,24 @@ const Pay = () => {
             </div>
 
         </div>
+
+        <div className="card">
+            <div className="card-image">
+                <img className="cardImg" src={Cosmetic15} />
+            </div>
+            <div className="spanContainer">
+                <div className="span-text">Under Eye Gel<br/>
+                <span className="span-price">$26.99</span></div>
+                <IconButton
+                className={classes.expand}>
+                <ArrowRightAltIcon />
+                </IconButton>  
+            </div>          
+        </div>
+
+    </div>
+    
+</>
     )
 }
 
