@@ -14,22 +14,23 @@ const Order = () => {
     }
 
     return (
-        <React.Fragment>
+        <>
             <div className='box'>
                 <div className='cartDiv'>
         <div className='paBackground'>
             <div className='brandName'>
             <br/>
                 <h1 className='textWhite bold'>BRUMIS</h1>
-                <img src={cosmetic} className='productImg' alt='Cosmetic'/>
+                <img src={cosmetic} className='productImg'/>
             </div>
         </div>
+
         <div className='mainProductCart'>
             <div className=''>
             <br/>
         <br/>
         <br/>
-                <div className='ratingIcon'><span class="iconify" data-icon="emojione:star"></span> <span class="iconify" data-icon="emojione:star"></span>
+                <div className='ratingIcons'><span class="iconify" data-icon="emojione:star"></span> <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
             <span class="iconify" data-icon="emojione:star"></span>
@@ -39,9 +40,9 @@ const Order = () => {
                 {number ? <p> $ {price *  number * 10} </p> : 266.88}
                 <p className='textBlack productName'>Color</p>
                 <p className='inline'>Products
-                    <img src='' className='rounded'alt='Product Color' />
-                    <img src='' className='rounded'alt='Product Color' />
-                    <img src='' className='rounded'alt='Product Color' />
+                    <img src='' className='rounded'/>
+                    <img src='' className='rounded'/>
+                    <img src='' className='rounded'/>
                 </p>
             </div>
             <div className ='productQuantity'>
@@ -72,7 +73,7 @@ const Order = () => {
             </div>
             
          
-        </React.Fragment>
+        </>
             
     )
 }

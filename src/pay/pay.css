@@ -240,8 +240,8 @@
 .checkbox1 {
     background-color: inherit;
     margin-bottom: 0.6rem;
-    height: 14px;
-    width: 14px;
+    height: 12px;
+    width: 12px;
 }
 
 .container-title > label {
@@ -253,13 +253,13 @@
 .checkbox2 {
     background-color: inherit;
     margin-bottom: 1.5rem;
-    height: 14.5px;
-    width: 14.5px;
+    height: 12.5px;
+    width: 12.5px;
 }
 
 .text {
     color: #ccc;
-    font-size: 15px;
+    font-size: 10px;
     margin-left: 5px;
 }
 
