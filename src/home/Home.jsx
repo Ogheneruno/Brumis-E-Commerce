@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Rate from '../rate/Rate';
 import Counter from '../counter/Counter';
 import Option from '../option/Option';
@@ -31,11 +31,12 @@ const useStyles = makeStyles(theme => ({
 
     appbar: {
         backgroundColor: 'transparent',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        color: 'black'
     },
 
-    type:{
-        color: 'black'
+    appbarSolid: {
+        backgroundColor: '#001e40'
     },
 
     linkItems:{
@@ -43,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     linkItem:{
-        color: 'black',
+        // color: 'black',
         marginLeft: '60px',
         cursor: 'pointer',
     
@@ -56,11 +57,11 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center'
     },
     searchIcon:{
-        color: 'black',
+        // color: 'black',
         marginRight: '40px'
     },
     cart:{
-        color: 'black',
+        // color: 'black',
         marginRight: '40px'
     },
     paperContainer: {
@@ -114,6 +115,25 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
     const classes = useStyles();
     const [count, setCount] = useState(1);
+    const [navBackground, setNavBackground] = useState('appbar');
+
+    const navRef = React.useRef()
+    navRef.current = navBackground;
+
+    useEffect(()=>{
+        const handleScroll = () =>{
+            const show = window.scrollY > 50
+            if(show){
+                setNavBackground('appbarSolid')
+            } else{
+                setNavBackground('appbar')
+            }
+        }
+        document.addEventListener('scroll', handleScroll)
+        return ()=>{
+            document.removeEventListener('scroll', handleScroll)
+        }
+    }, []);
 
     const handleIncrement = () => {
         setCount( (add) => add + 1);
@@ -124,7 +144,7 @@ const Home = () => {
     };
     return (
         <>
-        <AppBar className={classes.appbar}>
+        <AppBar className={classes[navRef.current]}>
             <Toolbar className={classes.toolbar}>
                 <Typography className={classes.type} variant="h6" noWrap>
                     BRUMIS
@@ -159,7 +179,7 @@ const Home = () => {
                 </div>
             </Toolbar>
         </AppBar>
-        <Paper>
+        <div>
             <div className={classes.PaperContainer}>
                 <img className={classes.paperImg} src={Image} />
                 <div className={classes.paperText}>
@@ -176,7 +196,7 @@ const Home = () => {
                        
                 </div>
            </div>
-        </Paper>
+        </div>
         
         </>
         

@@ -1,0 +1,25 @@
+.productImage{
+    width: 300px;
+    height: 400px;
+    /* background-color: green; */
+    position: absolute;
+    top: 0;
+    left: 185px;
+}
+.productImage1{
+    width: 300px;
+    height: 400px;
+    /* background-color: green; */
+    position: absolute;
+    top: 0;
+    left: 530px;
+}
+.productImage2{
+    width: 300px;
+    height: 400px;
+    /* background-color: rgb(223, 219, 219); */
+    /* background-color: green; */
+    position: absolute;
+    top: 0;
+    left: 865px;
+}

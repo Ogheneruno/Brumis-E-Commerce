@@ -14,7 +14,7 @@ const Order = () => {
     }
 
     return (
-        <React.Fragment>
+        <>
             <div className='box'>
                 <div className='cartDiv'>
         <div className='paBackground'>
@@ -67,7 +67,7 @@ const Order = () => {
             </div>
             
          
-        </React.Fragment>
+        </>
             
     )
 }

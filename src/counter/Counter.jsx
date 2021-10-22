@@ -40,17 +40,24 @@ const useStyles = makeStyles(theme =>({
         color: 'white',
         textTransform: 'captalize',
         borderRadius: '20px',
-        padding: '10px 20px',
-        marginLeft: '30px'
+        marginLeft: '30px',
+        '&:hover':{
+            backgroundColor: '#fff',
+            color: '#001e40',
+            border: '2px solid #001e40',
+            fontWeight: 'bold'
+        }
     }
 }))
 
 const Counter = () => {
     const classes = useStyles();
     const [count, setCount] = useState(1);
+    const [number, setNumber] = useState(29.99);
 
     const handleIncrement = () => {
         setCount( (add) => add + 1);
+
     };
 
     const handleDecrement = () =>{
@@ -59,7 +66,7 @@ const Counter = () => {
     return (
         <>
         <div className={classes.counterContainer}>
-            <Typography className={classes.priceText}>$29.99</Typography>
+            <Typography className={classes.priceText}>${number ? (number * count): number}</Typography>
             <div className={classes.counterBtn}>
                 <span className={classes.substract} onClick={handleDecrement}>-</span>
                 <span>{count}</span>
