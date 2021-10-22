@@ -1,11 +1,10 @@
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './home/Home';
-import Arrival from './arrival/Arrival';
-import Product from './product/Product';
-import Footer from './footer/Footer';
-import Rate from './rate/Rate';
+// import Arrival from './arrival/Arrival';
+// import Product from './product/Product';
+// import Footer from './footer/Footer';
+// import Rate from './rate/Rate';
 import Order from './order/Order';
 import Pay from './pay/Pay';
 
@@ -27,7 +26,7 @@ function App() {
         <Route exact path="/pay" component= {Pay}></Route>
       </switch>
     </Router>
-    
+
   );
 }
 

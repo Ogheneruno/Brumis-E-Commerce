@@ -5,7 +5,6 @@ import Image1 from '../img/cosmetic2.png';
 import Image2 from '../img/grass.png';
 
 
-
 const Pay = () => {
 
     const [count, setCount] = useState (1);
@@ -17,8 +16,6 @@ const Pay = () => {
     const [amount1, setAmount1] = useState (10.9);
 
     const [totalAmount, setTotalAmount] = useState (0);
-
-    const [value, setValue] = useState('Online Payment');
 
 
     const handleIncreament = () => {
@@ -36,10 +33,6 @@ const Pay = () => {
     const handleDecrement1 = () => {
         setCount1(count1 - 1);
     }
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-      };
 
 
     return (
@@ -158,8 +151,8 @@ const Pay = () => {
                         <div className="container-wrapper">
                             <h2 className="container-title">PAYMENT</h2>
                             
-                            <label for="checkbox1"><input id="checkbox1" className='checkbox1' type="radio" /><span className="text">Cash On Delivery (COD)</span></label>
-                            <label for="checkbox2"><input id="checkbox2" onClick={handleChange} className='checkbox2' type="radio" checked /><span className="text">{value}</span></label>
+                            <label for="checkbox1"><input id="checkbox1" name="COD" className='checkbox1' type="radio" /><span className="text">Cash On Delivery (COD)</span></label>
+                            <label for="checkbox2"><input id="checkbox2" name="COD" className='checkbox2' type="radio" checked /><span className="text">Online Delivery</span></label>
 
                             <div className="pay-method">
                             <button className="paypal" style={{ width: '50%'}}>Paypal</button>
@@ -186,20 +179,6 @@ const Pay = () => {
 
             </div>
 
-        </div>
-
-        <div className="card">
-            <div className="card-image">
-                <img className="cardImg" src={Cosmetic15} />
-            </div>
-            <div className="spanContainer">
-                <div className="span-text">Under Eye Gel<br/>
-                <span className="span-price">$26.99</span></div>
-                <IconButton
-                className={classes.expand}>
-                <ArrowRightAltIcon />
-                </IconButton>  
-            </div>          
         </div>
 
     </div>
