@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Rate from '../rate/Rate';
 import Counter from '../counter/Counter';
 import Option from '../option/Option';
+import Arrival from '../arrival/Arrival';
+import Product from '../product/Product';
+import Footer from '../footer/Footer';
 import {
     alpha,
     AppBar,
@@ -197,7 +200,9 @@ const Home = () => {
                 </div>
            </div>
         </div>
-        
+        <Arrival />
+        <Product />
+        <Footer />
         </>
         
     )

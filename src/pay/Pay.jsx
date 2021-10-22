@@ -158,7 +158,7 @@ const Pay = () => {
                             <h2 className="container-title">PAYMENT</h2>
                             
                             <label for="checkbox1"><input id="checkbox1" className='checkbox1' type="radio" /><span className="text">Cash On Delivery (COD)</span></label>
-                            <label for="checkbox2"><input id="checkbox2" className='checkbox2' type="radio" checked /><span className="text">{value}</span></label>
+                            <label for="checkbox2"><input id="checkbox2" onClick={handleChange} className='checkbox2' type="radio" checked /><span className="text">{value}</span></label>
 
                             <div className="pay-method">
                             <button className="paypal" style={{ width: '50%'}}>Paypal</button>
