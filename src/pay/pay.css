@@ -1,38 +1,156 @@
-.card-container{
-    display: flex;
-}
-.card{
-    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
-    margin-right: 30px;
-}
-.card-image{
-    width: 200px;
-    height: 150px;
+.card-holder {
+    border: 2px solid whitesmoke;
+    box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    margin: 10rem auto;
+    max-width: 65vw;
+    padding: 8px 3px 3px;
+    -webkit-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    -moz-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
 }
 
-.cardImg{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px 10px 0px 0px;
-}
-.spanContainer{
+.card {
+    border: 0 solid whitesmoke;
+    box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
     display: flex;
+    /* flex-direction: column; */
+    margin: 0 auto;
+    -webkit-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+    -moz-box-shadow: -4px 3px 20px -2px rgba(0,0,0,0.53) outset;
+}
+
+.card-wrapper {
+    flex: 1.5;
+}
+
+.card-left__title {
+    margin: 0 0.6rem;
+}
+
+.card-left {
+    background-color: rgba(255, 254, 254, 0.2);
+    border: none;
+    display: grid;
+    /* flex: 1.5; */
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+    margin: 0 0.6rem 0.01rem;
     align-items: center;
+    word-wrap: break-word;
     background-color: #fff;
-    padding: 10px;
+    background-clip: border-box;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 
-.expand{
-    background-color: #001e40;
-    color: #fff;
-    padding: 2px;
+.card-left__one {
+    display: flex;
 }
-.span-text{
-    margin-left: 10px;
-    font-weight: bold;
+
+.card-one__text {
+    display: flex;
 }
-.span-price{
+
+.card-one__text > p {
     margin-left: 10px;
-    font-size: 15px;
-    color: #e791a1;
+    font-size: 0.7rem;
+    font-weight: lighter;
+}
+
+.moneySign {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    margin: 0 0.3rem;
+}
+
+.card-left__two {
+    margin: 1rem;
+    text-align: center;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0.01px solid rgba(172, 170, 170, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-left__two > input {
+    border: none;
+    height: 2rem;
+    width: 50%;
+    margin: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+.card-left__three {
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0.01px solid rgba(172, 170, 170, 0.125);
+    border-radius: 0.25rem;
+    text-align: center;
+    width: 50%;
+}
+
+.card-left__three > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.close {
+    margin: 1.8rem 0;
+}
+
+.count {
+    font-size: 1rem;
+    margin: 0.8rem 0;
+}
+
+.span {
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
+.span1 {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    transform: rotate(-45deg);
+}
+
+.span2 {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.card-left__bottom {
+    border: 0.1px solid rgba(44, 44, 44, 0.7);
+    margin: 0 0.6rem 1rem;
+    width: 96.3%;
+}
+
+.card-right {
+    background-color: rgb(44, 44, 44);
+    flex: 1;
+}
+
+
+.card__bottom {
+    background-color: black;
+    border: 4px solid;
+    clip-path: 80% 0 0 80%;
+}
+
+.subtotal {
+    justify-content: space-between;
+    display: flex;
+    margin: 0 0.6rem 1rem;
+}
+
+.moneySign1 {
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0 0.3rem;
+    /* margin-left: 27rem; */
 }

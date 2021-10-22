@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './pay.css';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -47,103 +47,132 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Pay = () => {
-    const classes = useStyles();
-   
+    const [count, setCount] = useState (1);
+
+    const [count1, setCount1] = useState (1);
+
+    const [amount, setAmount] = useState (50.4);
+
+    const [amount1, setAmount1] = useState (10.9);
+
+    const [totalAmount, setTotalAmount] = useState (0);
+
+    const [remove, setRemove] = useState (false);
+
+    const handleIncreament = () => {
+        setCount(count + 1);
+    };
+
+    const handleDecrement = () => {
+        setCount(count - 1);
+    }
+
+    const handleIncreament1 = () => {
+        setCount1(count1 + 1);
+    };
+
+    const handleDecrement1 = () => {
+        setCount1(count1 - 1);
+    }
+
+
     return (
         <>
-    <div className={classes.mainCard}>
-            <Card className={classes.root}>
-            <CardMedia
-                className={classes.media}
-                image={Cosmetic2}
-                title="Paella dish"
-            />
-            {/* <CardContent>
+        <div>
+        <div className="card-holder">
             
-            </CardContent> */}
-            <CardActions disableSpacing>
-                <Typography>Night Cream</Typography><br/>
-                <div>50</div>
-                <IconButton
-                className={classes.expand}
-                >
-                <ArrowRightAltIcon />
-                </IconButton>
-            </CardActions>
-            
-            </Card>
+                <div className="card">
 
-            <Card className={classes.root}>
-            <CardMedia
-                className={classes.media}
-                image={Cosmetic4}
-                title="Paella dish"
-            />
-            {/* <CardContent>
-            
-            </CardContent> */}
-            <CardActions disableSpacing>
-                <Typography>Night Cream</Typography><br/>
-                <div>50</div>
-                <IconButton
-                className={classes.expand}
-                >
-                <ArrowRightAltIcon />
-                </IconButton>
-            </CardActions>
-            
-            </Card>
+                    <div className="card-wrapper">
 
+                        <img src="" alt="" className="" />
+                        <h2 className="card-left__title">SHOPPING CART</h2>
 
-            <Card className={classes.root}>
-            <CardMedia
-                className={classes.media}
-                image={Cosmetic15}
-                title="Paella dish"
-            />
-            {/* <CardContent>
-            
-            </CardContent> */}
-            <CardActions disableSpacing>
-                <Typography>Night Cream</Typography><br/>
-                <div>50</div>
-                <IconButton
-                className={classes.expand}
-                >
-                <ArrowRightAltIcon />
-                </IconButton>
-            </CardActions>
-            
-            </Card>
-    </div>
+                        <div display={remove} className="card-left">
+                            <div className="card-left__one">
+                                <img className="" src="" alt="" />
+                                <div className="card-one__text">
+                                    <h2 className=""></h2>
+                                    <p className="">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                        Dicta ipsum aspernatur fuga debitis quae, vitae placeat praesentium voluptas.
+                                    </p>
+                                    <span className="moneySign">$</span><h4 className="">{setCount ? (amount * count): amount}</h4>
+                                </div>
+                            </div>
 
-    <div className="card-container">
-        <div className="card">
-            <div className="card-image">
-                <img className="cardImg" src={Cosmetic2} />
-            </div>
-            <div className="spanContainer">
-                <div className="span-text">Night Cream<br
-                /><span className="span-price">$23.99</span></div>
-                <IconButton
-                className={classes.expand}>
-                <ArrowRightAltIcon />
-                </IconButton>  
-            </div>          
-        </div>
+                            <div className="card-left__two">
+                                <div className="">
+                                    <span aria-hidden="true"><button className="span1" onClick={handleIncreament}>&times;</button></span>
+                                </div>
 
-        <div className="card">
-            <div className="card-image">
-                <img className="cardImg" src={Cosmetic4} />
-            </div>
-            <div className="spanContainer">
-                <div className="span-text">Organic Cream<br
-                /><span className="span-price">$43.99</span></div>
-                <IconButton
-                className={classes.expand}>
-                <ArrowRightAltIcon />
-                </IconButton>  
-            </div>          
+                                <div className="count">
+                                    0{count}
+                                </div>
+
+                                <div className="">
+                                    <span aria-hidden="true"><button className="span2" onClick={handleDecrement}>&minus;</button></span>
+                                </div>
+                            </div>
+
+                            <div className="card-left__three">
+                                <button onClick={() => setRemove(true)} className="close">
+                                <span className="span" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="card-left">
+                            <div className="card-left__one">
+                                <img className="" src="" alt="" />
+                                <div className="card-one__text">
+                                    <h2 className=""></h2>
+                                    <p className="">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                        Dicta ipsum aspernatur fuga debitis quae, vitae placeat praesentium voluptas.
+                                    </p>
+                                    <span className="moneySign">$</span><h4 className="">{setCount1 ? (amount1 * count1): amount1}</h4>
+                                </div>
+                            </div>
+
+                            <div className="card-left__two">
+                                <div className="">
+                                    <span aria-hidden="true"><button className="span1" onClick={handleIncreament1}>&times;</button></span>
+                                </div>
+
+                                <div className="count">
+                                    0{count1}
+                                </div>
+
+                                <div className="">
+                                    <span aria-hidden="true"><button className="span2" onClick={handleDecrement1}>&minus;</button></span>
+                                </div>
+                            </div>
+
+                            <div className="card-left__three">
+                                <button onClick={''} className="close">
+                                    <span className="span" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr className="card-left__bottom" />
+                        
+                        <div className="subtotal">
+                            <h4 className="">SUBTOTAL</h4>
+                            <h4 className=""><span className="moneySign1">$</span>{setTotalAmount ? (amount + amount1): totalAmount}</h4>
+                        </div>
+
+                    </div>
+
+                    <div className="card-right">
+                        right card
+                    </div>
+                    
+                </div>
+
+                <hr className="card__bottom" />
+
         </div>
 
         <div className="card">
@@ -161,6 +190,7 @@ const Pay = () => {
         </div>
 
     </div>
+    
 </>
     )
 }

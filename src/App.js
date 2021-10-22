@@ -14,6 +14,8 @@ function App() {
         <Arrival/>
         <Product/>
         <Footer/>
+      <Pay />
+      <Order/>
       
     </div>
   );
