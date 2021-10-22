@@ -21,7 +21,7 @@ const Order = () => {
             <div className='brandName'>
             <br/>
                 <h1 className='textWhite bold'>BRUMIS</h1>
-                <img src={cosmetic} className='productImg'/>
+                <img src={cosmetic} className='productImg' alt='Cosmetic'/>
             </div>
         </div>
         <div className='mainProductCart'>
@@ -39,9 +39,9 @@ const Order = () => {
                 {number ? <p> $ {price *  number * 10} </p> : 266.88}
                 <p className='textBlack productName'>Color</p>
                 <p className='inline'>Products
-                    <img src='' className='rounded'/>
-                    <img src='' className='rounded'/>
-                    <img src='' className='rounded'/>
+                    <img src='' className='rounded'alt='Product Color' />
+                    <img src='' className='rounded'alt='Product Color' />
+                    <img src='' className='rounded'alt='Product Color' />
                 </p>
             </div>
             <div className ='productQuantity'>
