@@ -3,6 +3,7 @@ import './pay.css';
 import Image from '../img/cosmetic5.png';
 import Image1 from '../img/cosmetic2.png';
 import Image2 from '../img/grass.png';
+import { makeStyles } from '@material-ui/core';
 
 
 const Pay = () => {
@@ -15,15 +16,18 @@ const Pay = () => {
 
     const [amount1, setAmount1] = useState (10.9);
 
-    const [totalAmount, setTotalAmount] = useState (0);
+    const [totalAmount, setTotalAmount] = useState (amount + amount1);
+
+    const [show, setShow] = useState (false);
 
 
     const handleIncreament = () => {
         setCount(count + 1);
     };
 
-    const handleDecrement = (e) => {
+    const handleDecrement = () => {
         setCount(count - 1);
+        
     }
 
     const handleIncreament1 = () => {
@@ -35,14 +39,24 @@ const Pay = () => {
     }
 
 
+    const useStyles = makeStyles(theme => ({
+        open: {
+            [theme.breakpoints.up("md")]: {
+                display: (props) => (props.show ? "flex": "none"),
+            }
+        }
+    }));
+
+    const classes = useStyles({show});
+
+
     return (
-        <>
-        <div>
+
         <div className="card-holder">
             
             <div className="card">
 
-                <div className="card-wrapper">
+                <div show={show} className={`card-wrapper`}>
 
                     <h1 className='brand'>BRUMIS</h1>
                     
@@ -58,8 +72,7 @@ const Pay = () => {
                                 <h4 className="cardone__subtitle">Buaex Cream</h4>
                                 <div className="cardleft__text">
                                     <p className="">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br/>
-                                        Dicta ipsum aspernatur fuga debitis quae.
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                     </p>
                                     <span className="moneySign">$</span><h4 className="">{setCount ? (amount * count): amount}</h4>
                                 </div>
@@ -102,8 +115,7 @@ const Pay = () => {
                                 <div className="cardleft__text">
 
                                     <p className="">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br/>
-                                        Dicta ipsum aspernatur fuga debitis quae.
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                     </p>
 
                                     <span className="moneySign">$</span><h4 className="">{setCount1 ? (amount1 * count1): amount1}</h4>
@@ -139,20 +151,26 @@ const Pay = () => {
                     
                     <div className="subtotal">
                         <h4 className="">SUBTOTAL</h4>
-                        <h4 className=""><span className="moneySign1">$</span>{setTotalAmount ? (amount + amount1): totalAmount}</h4>
+                        <h4 className="" onChange={() => setTotalAmount(amount + amount1)}><span className="moneySign1">$</span>{totalAmount}</h4>
                     </div>
+
+                    <button className="payment" onClick={() => setShow(true)}>Make Payment</button>
+
+                    <script>
+
+                    </script>
    
                 </div>
 
-                <div className="card-right">
+                <div className="card-right" style={{}}>
 
                     <div className="container">
 
                         <div className="container-wrapper">
                             <h2 className="container-title">PAYMENT</h2>
                             
-                            <label for="checkbox1"><input id="checkbox1" name="COD" className='checkbox1' type="radio" /><span className="text">Cash On Delivery (COD)</span></label>
-                            <label for="checkbox2"><input id="checkbox2" name="COD" className='checkbox2' type="radio" checked /><span className="text">Online Delivery</span></label>
+                            <label className="label" for="checkbox1"><input id="checkbox1" name="COD" className='checkbox1' type="radio" /><span className="text">Cash On Delivery (COD)</span></label>
+                            <label className="label" for="checkbox2"><input id="checkbox2" name="COD" className='checkbox2' type="radio" checked /><span className="text">Online Delivery</span></label>
 
                             <div className="pay-method">
                             <button className="paypal" style={{ width: '50%'}}>Paypal</button>
@@ -160,7 +178,7 @@ const Pay = () => {
                             </div>
 
                             <input type="text" className="cardholder-name" placeholder="Cardholder Name" required />
-                            <input type="text" className="cardnumber" placeholder="Card Name" required />
+                            <input type="text" className="cardnumber" placeholder="Card Number" required />
 
                             <div className="holder">
                                 <input type="text" className="exp-date" placeholder="Exp. Date" required />
@@ -180,10 +198,6 @@ const Pay = () => {
             </div>
 
         </div>
-
-    </div>
-    
-</>
     )
 }
 
