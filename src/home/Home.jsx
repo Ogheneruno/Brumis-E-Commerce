@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Rate from '../rate/Rate';
 import Counter from '../counter/Counter';
 import Option from '../option/Option';
-import Navbar from '../navbar/Navbar';
+import Arrival from '../arrival/Arrival';
+import Product from '../product/Product';
+import Testimonial from '../testimonial/Testimonial';
 import {
     alpha,
     AppBar,
@@ -21,7 +23,6 @@ import {
 } from '@material-ui/core';
 import { ShoppingCart, Search} from '@material-ui/icons';
 import EcoIcon from '@material-ui/icons/Eco';
-import Pay from '../pay/Pay';
 import DrawerComponent from "../Drawer";
 
 import './home.css';
@@ -120,6 +121,9 @@ const Home = () => {
                         <Typography className={classes.paperBody} mt={2}>Most dermatologist agree it is important to cleanse the face twice daily to get bacteria, dirt and pollutants off your skin</Typography>
                         <Counter/>
                         <Option/>
+                        <Arrival/>
+                        <Product/>
+                        <Testimonial/>
                        
                 </div>
            </div>

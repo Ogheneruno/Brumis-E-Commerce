@@ -4,6 +4,7 @@ import Image from '../img/cosmetic5.png';
 import Image1 from '../img/cosmetic2.png';
 import Image2 from '../img/grass.png';
 import { makeStyles } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 
 const Pay = () => {
@@ -19,6 +20,8 @@ const Pay = () => {
     const [totalAmount, setTotalAmount] = useState (amount + amount1);
 
     const [show, setShow] = useState (false);
+
+    const history = useHistory();
 
 
     const handleIncreament = () => {
@@ -51,7 +54,7 @@ const Pay = () => {
 
 
     return (
-
+        <div style={{position: 'relative', height: '50rem'}}>
         <div className="card-holder">
             
             <div className="card">
@@ -154,7 +157,7 @@ const Pay = () => {
                         <h4 className="" onChange={() => setTotalAmount(amount + amount1)}><span className="moneySign1">$</span>{totalAmount}</h4>
                     </div>
 
-                    <button className="payment" onClick={() => setShow(true)}>Make Payment</button>
+                    <button className="payment" onClick={() => history.push('/makepayment')}>Make Payment</button>
 
                     <script>
 
@@ -197,6 +200,7 @@ const Pay = () => {
 
             </div>
 
+        </div>
         </div>
     )
 }

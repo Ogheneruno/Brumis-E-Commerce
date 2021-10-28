@@ -1,27 +1,28 @@
 import React from 'react';
 import './App.css';
-import Home from './home/Home';
-import Arrival from './arrival/Arrival';
-import { BrowserRouter as Router } from "react-router-dom";
-import Product from './product/Product';
-import Testimonial from './testimonial/Testimonial';
-import Footer from './footer/Footer';
-import Navbar from './navbar/Navbar';
-import Pay from './pay/Pay';
-import Order from './order/Order';
+import Navbar from '../src/navbar/Navbar';
+import { Route, Switch } from 'react-router-dom';
+import Home from '../src/home/Home';
+// import Login from '../src/login/Login';
+// import Register from '../src/register/Register';
+import Order from '../src/order/Order';
+import Pay from '../src/pay/Pay';
+import MakePayment from './pay/MakePayment';
+
+
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar/>
-        <Home/>
-        <Arrival/>
-        <Product/>
-        <Testimonial/>
-        <Footer/> 
-      </Router>
-     
+     <Navbar />
+     <Switch>
+       <Route exact from="/" component={Home} />
+       {/* <Route from="/login" component={Login}></Route> */}
+       {/* <Route from="/register" component={Register}></Route> */}
+       <Route path="/order" component={Order} />
+       <Route path="/pay" component={Pay} />
+       <Route path="/makepayment" component={MakePayment} />
+     </Switch>
     </div>
   );
 }
