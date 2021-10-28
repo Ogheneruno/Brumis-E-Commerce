@@ -78,4 +78,4 @@ const Order = () => {
     )
 }
 
-export default Order
+export default Order;
