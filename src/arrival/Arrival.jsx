@@ -4,7 +4,9 @@ import {
     Paper, 
     Button,
     IconButton,
-    makeStyles
+    makeStyles,
+    useTheme,
+    useMediaQuery
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import Bg from '../img/newbackground.jpg';
@@ -27,25 +29,40 @@ const useStyles = makeStyles(theme => ({
     },
     arrivalBg:{
         width: '50%',
-        position: 'relative'
+        position: 'relative',
+        [theme.breakpoints.down("xs")]:{
+            width: 'auto',
+       }
     },
     paperBg:{
         position: 'relative',
         width: '100%',
         height: '500px',
         borderRadius: '0% 40% 40% 0%',
-        marginTop: '110px'
+        marginTop: '110px',
+        [theme.breakpoints.down("xs")]:{
+            display: 'none'
+       }
     },
     paperLady:{
         position: 'absolute',
         top: '0',
         marginLeft: '-400px',
-        width: '350px'
+        width: '350px',
+        [theme.breakpoints.down("xs")]:{
+            display: 'none'
+       }
     },
     arrivalText:{
         width: '50%',
         marginTop: '200px',
-        paddingLeft: '30px'
+        paddingLeft: '30px',
+        [theme.breakpoints.down("xs")]:{
+            width: '100%',
+            position: 'relative',
+            paddingLeft: '5px',
+            textAlign: 'center'
+       }
        
     },
     arrivalHead:{
@@ -54,7 +71,10 @@ const useStyles = makeStyles(theme => ({
     },
     arrivalBody:{
         width: '80%',
-        margin: '20px 0px'
+        margin: '20px 0px',
+        [theme.breakpoints.down("xs")]:{
+            padding: '0px 20px'
+       }
     },
     arrivalBtn:{
         fontSize: '10px',
@@ -85,13 +105,18 @@ const useStyles = makeStyles(theme => ({
     arrivalImg:{
         position: 'absolute',
         top: '450px',
-        left: '480px'
+        left: '480px',
+        [theme.breakpoints.down("md")]:{
+            left: '60px'
+        }
     }
     
 }));
 
 const Arrival = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <>
         <div>
@@ -110,7 +135,7 @@ const Arrival = () => {
 
                 <div className={classes.arrivalImg}>
                   <div className="card-container">
-                    <div className="card">
+                    <div className="card1">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic2} />
                         </div>
@@ -124,7 +149,7 @@ const Arrival = () => {
                         </div>          
                     </div>
 
-                    <div className="card">
+                    <div className="card1">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic4} />
                         </div>
@@ -138,7 +163,7 @@ const Arrival = () => {
                         </div>          
                     </div>
 
-                    <div className="card">
+                    <div className="card1">
                         <div className="card-image">
                             <img className="cardImg" src={Cosmetic15} />
                         </div>

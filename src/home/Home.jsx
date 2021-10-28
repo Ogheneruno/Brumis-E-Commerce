@@ -14,10 +14,14 @@ import {
     MenuItem, 
     makeStyles,
     Paper,
-    Box
+    Box,
+    useTheme,
+   useMediaQuery
 } from '@material-ui/core';
 import { ShoppingCart, Search} from '@material-ui/icons';
 import EcoIcon from '@material-ui/icons/Eco';
+import DrawerComponent from "../Drawer";
+
 import './home.css';
 import Image from '../img/banner.png'; // Import using relative path
 
@@ -26,7 +30,10 @@ import Image from '../img/banner.png'; // Import using relative path
 const useStyles = makeStyles(theme => ({
     toolbar: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down("md")]:{
+            justifyContent: (props) => (props.openDrawer? "space-between": "normal")
+        }
     },
 
     appbar: {
@@ -54,34 +61,55 @@ const useStyles = makeStyles(theme => ({
     },
     linkIcon:{
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+         [theme.breakpoints.down("md")]:{
+             marginLeft: 'auto',
+        },
+        [theme.breakpoints.down("xs")]:{
+            marginLeft: '20px',
+       }
     },
     searchIcon:{
         // color: 'black',
-        marginRight: '40px'
+        marginRight: '40px',
+        [theme.breakpoints.down("md")]:{
+            marginRight: '20px',
+       }
+
     },
     cart:{
         // color: 'black',
-        marginRight: '40px'
+        marginRight: '40px',
+        [theme.breakpoints.down("md")]:{
+            marginRight: '20px',
+       }
     },
     paperContainer: {
         // backgroundImage: `url(${Image})`,
         width: '100%',
         height: '600px',
-        boxShadow: '0px'
+        boxShadow: '0px',
+        position: 'relative'
 
     },
     paperImg:{
         position: 'relative',
         width: '100%',
         height: '600px',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        [theme.breakpoints.down("xs")]:{
+            display: 'none',
+       }
     },
     paperText:{
         position: 'absolute',
         width: '40%',
         top: '100px',
-        left: '20px'
+        left: '20px',
+        [theme.breakpoints.down("xs")]:{
+            width: '100%',
+            position: 'relative',
+       }
     },
     iconColor:{
         width: '30%',
@@ -90,7 +118,10 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(1),
         backgroundColor: '#fff2f4',
         borderRadius: '20px',
-        marginBottom: theme.spacing(3)
+        marginBottom: theme.spacing(3),
+        [theme.breakpoints.down("xs")]:{
+            width: '50%',
+       }
     },
     iconColorText:{
         fontSize: '13px',
@@ -116,6 +147,8 @@ const Home = () => {
     const classes = useStyles();
     const [count, setCount] = useState(1);
     const [navBackground, setNavBackground] = useState('appbar');
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     const navRef = React.useRef()
     navRef.current = navBackground;
@@ -141,6 +174,7 @@ const Home = () => {
 
     const handleDecrement = () =>{
         setCount( (sub) => sub - 1);
+        
     };
     return (
         <>
@@ -149,6 +183,9 @@ const Home = () => {
                 <Typography className={classes.type} variant="h6" noWrap>
                     BRUMIS
                 </Typography>
+                {isMobile ? (
+                <DrawerComponent />
+                 ) : (
                 <div className={classes.linkItems}>
                     <div className={classes.linkItem}>
                         <Typography className={classes.linkText}>Home</Typography>
@@ -170,6 +207,8 @@ const Home = () => {
                         <Typography className={classes.linkText}>Contact</Typography>
                     </div>
                 </div>
+                        )}
+
                 <div className={classes.linkIcon}>
                     <Search className={classes.searchIcon} />
                     <Badge className={classes.badge}>
@@ -197,10 +236,10 @@ const Home = () => {
                 </div>
            </div>
         </div>
-        
+   
         </>
         
     )
 }
 
-export default Home
+export default Home;

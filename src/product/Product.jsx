@@ -38,14 +38,19 @@ const useStyles = makeStyles(theme => ({
         width: '80%',
         display: 'flex',
         alignItems: 'center',
-        // marginLeft: '15%',
-        // backgroundColor: 'red',
-        margin: '20px auto'
+        margin: '20px auto',
+        [theme.breakpoints.down("md")]:{
+            margin: '0px'
+        }
 
     },
     productItem:{
-        marginLeft: '100px'
+        marginLeft: '100px',
+        [theme.breakpoints.down("sm")]:{
+            marginLeft: '60px'
+        }
     },
+    
     productBg:{
         backgroundColor: 'rgb(223, 219, 219)',
         width: '200px',
@@ -55,8 +60,48 @@ const useStyles = makeStyles(theme => ({
         marginTop: '50px'
        
     },
+    productImage:{
+        width: '300px',
+        height: '400px',
+        position: 'absolute',
+        top: '0',
+        left: '185px',
+        [theme.breakpoints.down("md")]:{
+            left: '55px'
+        },
+        [theme.breakpoints.down("sm")]:{
+            left: '5px'
+        }
+    },
+    productImage1:{
+        width: '300px',
+        height: '400px',
+        position: 'absolute',
+        top: '0',
+        left: '530px',
+        [theme.breakpoints.down("md")]:{
+            left: '350px'
+        },
+        [theme.breakpoints.down("sm")]:{
+            left: '270px'
+        }
+    },
+    productImage2:{
+        width: '300px',
+        height: '400px',
+        position: 'absolute',
+        top: '0',
+        left: '865px',
+        [theme.breakpoints.down("md")]:{
+            width: 'auto',
+            left: '665px'
+        },
+        [theme.breakpoints.down("sm")]:{
+            left: '535px'
+        }
+    },
     productText:{
-        marginTop: '20px',
+        marginTop: '40px',
         textAlign: 'center'
     },
     productHeader:{
@@ -101,7 +146,7 @@ const Product = () => {
                     <div className={classes.productItem}>
                         <div className={classes.productBg}>
                         </div>
-                        <img className="productImage" src={Cosmetic5} />
+                        <img className={classes.productImage} src={Cosmetic5} />
 
                         <div className={classes.productText}>
                             <h4 className={classes.productHeader}>Face Care</h4>
@@ -116,7 +161,7 @@ const Product = () => {
                     <div className={classes.productItem}>
                         <div className={classes.productBg}>
                         </div>
-                        <img className="productImage1" src={Cosmetic7} />
+                        <img className={classes.productImage1} src={Cosmetic7} />
 
                         <div className={classes.productText}>
                         <h4 className={classes.productHeader}>Bath & Body</h4>
@@ -131,7 +176,7 @@ const Product = () => {
                     <div className={classes.productItem}>
                         <div className={classes.productBg}>
                         </div>
-                        <img className="productImage2" src={Cosmetic6} />
+                        <img className={classes.productImage2} src={Cosmetic6} />
 
                         <div className={classes.productText}>
                         <h4 className={classes.productHeader}>Skin Care</h4>
