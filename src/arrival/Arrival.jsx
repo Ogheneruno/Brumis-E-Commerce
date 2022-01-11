@@ -1,20 +1,24 @@
 import React, {useState} from 'react';
 import {
     Typography,
-    Paper, 
+    // Paper, 
     Button,
     IconButton,
     makeStyles,
     useTheme,
     useMediaQuery
 } from '@material-ui/core';
+// import { Link } from 'react-router-dom';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import Bg from '../img/newbackground.jpg';
 import Lady from '../img/cosmetic16.png';
-import Cosmetic2 from '../img/cosmetic2.jpg';
-import Cosmetic4 from '../img/cosmetic4.jpg';
-import Cosmetic15 from '../img/cosmetic15.jpg';
+// import Cosmetic2 from '../img/cosmetic2.jpg';
+// import Cosmetic4 from '../img/cosmetic4.jpg';
+// import Cosmetic15 from '../img/cosmetic15.jpg';
 import './arrival.css';
+import { NewArrivals } from "../database/newArrival";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -23,8 +27,12 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         position: 'relative',
         display: 'flex',
-        marginTop: '30px',
-        marginBottom: '50px'
+        marginTop: '5px',
+        marginBottom: '80px',
+        [theme.breakpoints.down("xs")]:{
+           flexDirection: 'column',
+            marginTop: '30px',
+        }
 
     },
     arrivalBg:{
@@ -59,6 +67,7 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: '30px',
         [theme.breakpoints.down("xs")]:{
             width: '100%',
+            marginTop: '100px',
             position: 'relative',
             paddingLeft: '5px',
             textAlign: 'center'
@@ -70,7 +79,7 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 'bold'
     },
     arrivalBody:{
-        width: '80%',
+        // width: '80%',
         margin: '20px 0px',
         [theme.breakpoints.down("xs")]:{
             padding: '0px 20px'
@@ -108,6 +117,19 @@ const useStyles = makeStyles(theme => ({
         left: '480px',
         [theme.breakpoints.down("md")]:{
             left: '60px'
+        },
+        [theme.breakpoints.down("xs")]:{
+            position: 'static'
+        }
+    },
+    cardContainer:{
+        display: 'flex',
+        [theme.breakpoints.down("xs")]:{
+           flexDirection: 'column',
+           gap: '2em',
+           width: '50%',
+           margin: '20px auto 0px auto'
+          
         }
     }
     
@@ -117,73 +139,48 @@ const Arrival = () => {
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    
     return (
-        <>
         <div>
             <div className={classes.arrivalContainer}>
                 <div className={classes.arrivalBg}>
-                    <img className={classes.paperBg} src={Bg} />
-                    <img className={classes.paperLady} src={Lady} />
-
+                    <img className={classes.paperBg} src={Bg} alt='#' />
+                    <img className={classes.paperLady} src={Lady} alt='#' />
                 </div>
 
                 <div className={classes.arrivalText}>
-                    <Typography className={classes.arrivalHead} variant="h4">New Arrival</Typography>
+                    <Typography className={classes.arrivalHead} variant="h4">New Arrivals</Typography>
                     <Typography className={classes.arrivalBody} mt={2}>Most dermatologist agree it is important to cleanse the face twice daily to get bacteria, dirt and pollutants off your skin</Typography>
-                    <Button className={classes.arrivalBtn}>View More</Button>
+                    <Button className={classes.arrivalBtn} onClick={()=>(window.location.href="/shop")}>View More</Button>
                 </div>
-
+                
                 <div className={classes.arrivalImg}>
-                  <div className="card-container">
-                    <div className="card1">
-                        <div className="card-image">
-                            <img className="cardImg" src={Cosmetic2} />
-                        </div>
-                        <div className="spanContainer">
-                            <div className="span-text">Night Cream<br
-                            /><span className="span-price">$23.99</span></div>
-                            <IconButton
-                            className={classes.expand}>
-                            <ArrowRightAltIcon />
-                            </IconButton>  
-                        </div>          
+                    <div className={classes.cardContainer}>
+                        {
+                            NewArrivals.map((arrival) => {
+                                return (
+                                    <div className="card1"  key={arrival.id}>
+                                        <div className="card-image">
+                                            <img className="cardImg" src={arrival.image} alt='#' />
+                                        </div>
+                                        <div className="spanContainer">
+                                            <div className="span-text">{arrival.name}
+                                                <span className="span-price">${arrival.price}</span> 
+                                            </div>
+                                            <IconButton className={classes.expand}>
+                                                <Link to={`/order/${arrival.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                                                    <ArrowRightAltIcon />
+                                                </Link>
+                                            </IconButton>  
+                                        </div>          
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-
-                    <div className="card1">
-                        <div className="card-image">
-                            <img className="cardImg" src={Cosmetic4} />
-                        </div>
-                        <div className="spanContainer">
-                            <div className="span-text">Organic Cream<br
-                            /><span className="span-price">$43.99</span></div>
-                            <IconButton
-                            className={classes.expand}>
-                            <ArrowRightAltIcon />
-                            </IconButton>  
-                        </div>          
-                    </div>
-
-                    <div className="card1">
-                        <div className="card-image">
-                            <img className="cardImg" src={Cosmetic15} />
-                        </div>
-                        <div className="spanContainer">
-                            <div className="span-text">Under Eye Gel<br/>
-                            <span className="span-price">$26.99</span></div>
-                            <IconButton
-                            className={classes.expand}>
-                            <ArrowRightAltIcon />
-                            </IconButton>  
-                        </div>          
-                    </div>
-
-                  </div>
-                </div>
-
+                </div>                                
             </div>
-            
         </div>
-        </>
     )
 }
 

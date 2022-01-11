@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {makeStyles, Typography, Button} from '@material-ui/core';
 import './counter.css';
-import { display } from '@mui/system';
+// import { display } from '@mui/system';
 
 const useStyles = makeStyles(theme =>({
     counterContainer:{
@@ -17,11 +17,15 @@ const useStyles = makeStyles(theme =>({
         alignItems: 'center',
         justifyContent: 'center',
         cursor: 'pointer',
-        marginLeft: '50px'
+        marginLeft: '30px',
+        [theme.breakpoints.down("sm")]:{
+            width: '25%'
+        }
     },
     priceText:{
         fontSize: '24px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        width: '4rem'
     },
     substract:{
         fontSize: '24px',
@@ -53,15 +57,15 @@ const useStyles = makeStyles(theme =>({
 const Counter = () => {
     const classes = useStyles();
     const [count, setCount] = useState(1);
-    const [number, setNumber] = useState(29.99);
+    const [number, setNumber] = useState(29.00);
 
     const handleIncrement = () => {
-        setCount( (add) => add + 1);
+       setCount( (add) => add + 1);
 
     };
 
     const handleDecrement = () =>{
-        setCount((sub) => sub - 1);
+        count > 1 && setCount((sub) => sub - 1);
     };
     return (
         <>

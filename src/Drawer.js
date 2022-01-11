@@ -43,19 +43,19 @@ function DrawerComponent() {
         <List className={classes.list}>
         <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.linkText}>Home</Link>
+              <Link className={classes.linkText} to="/">Home</Link>
             </ListItemText>
           </ListItem>
           <Divider/>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.linkText}>About</Link>
+              <Link className={classes.linkText} to="/about">About</Link>
             </ListItemText>
           </ListItem>
           <Divider/>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.linkText}>Shop</Link>
+              <Link className={classes.linkText} to="/shop">Shop</Link>
             </ListItemText>
           </ListItem>
           <Divider/>
@@ -67,7 +67,7 @@ function DrawerComponent() {
           <Divider/>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.linkText}>Contact</Link>
+              <Link className={classes.linkText} to="/contact">Contact</Link>
             </ListItemText>
           </ListItem>
         </List>

@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import './product.css';
-import Cosmetic5 from '../img/cosmetic5x.png';
-import Cosmetic6 from '../img/cosmetic6x.png';
-import Cosmetic7 from '../img/cosmetic7.png';
+import { products } from './Product';
 import {
     Typography,
-    Paper, 
+    // Paper, 
     Button,
-    IconButton,
+    // IconButton,
     makeStyles
 } from '@material-ui/core';
-import { fontWeight } from '@mui/system';
+// import { fontWeight } from '@mui/system';
 
 const useStyles = makeStyles(theme => ({
     productContainer:{
@@ -41,6 +39,10 @@ const useStyles = makeStyles(theme => ({
         margin: '20px auto',
         [theme.breakpoints.down("md")]:{
             margin: '0px'
+        },
+        [theme.breakpoints.down("xs")]:{
+            flexDirection: 'column',
+            margin: '10px auto'
         }
 
     },
@@ -57,7 +59,11 @@ const useStyles = makeStyles(theme => ({
         height: '200px',
         borderRadius: '50%',
         position: 'relative',
-        marginTop: '50px'
+        marginTop: '50px',
+        [theme.breakpoints.down("sm")]:{
+            width: '170px',
+            height: '170px'
+        }
        
     },
     productImage:{
@@ -70,7 +76,15 @@ const useStyles = makeStyles(theme => ({
             left: '55px'
         },
         [theme.breakpoints.down("sm")]:{
-            left: '5px'
+            width: '230px',
+            height: '300px',
+            left: '30px',
+            top: '25px'
+
+        },
+        [theme.breakpoints.down("xs")]:{
+            left: '60px'
+
         }
     },
     productImage1:{
@@ -83,7 +97,15 @@ const useStyles = makeStyles(theme => ({
             left: '350px'
         },
         [theme.breakpoints.down("sm")]:{
-            left: '270px'
+            width: '230px',
+            height: '300px',
+            left: '260px',
+            top: '25px'
+
+        },
+        [theme.breakpoints.down("xs")]:{
+            top: '485px',
+            left: '65px',
         }
     },
     productImage2:{
@@ -97,7 +119,15 @@ const useStyles = makeStyles(theme => ({
             left: '665px'
         },
         [theme.breakpoints.down("sm")]:{
-            left: '535px'
+            width: '230px',
+            height: '300px',
+            left: '485px',
+            top: '25px'
+        },
+        [theme.breakpoints.down("xs")]:{
+            top: '965px',
+            left: '75px'
+            
         }
     },
     productText:{
@@ -138,57 +168,61 @@ const Product = () => {
 
     return (
         <>
-        <div className={classes.productContainer}>
-            <Typography className={classes.productHead} variant="h6">Popular Product</Typography>
-            <Typography className={classes.productHead1} variant="h4">Meet Our Bestsellers</Typography>
-            <div className={classes.itemContainer}>
-                <div className={classes.productItems}>
-                    <div className={classes.productItem}>
-                        <div className={classes.productBg}>
+        {products.map(product => (
+            <div className={classes.productContainer} key={product.id}>
+                <Typography className={classes.productHead} variant="h6">Popular Products</Typography>
+                <Typography className={classes.productHead1} variant="h4">Meet Our Bestsellers</Typography>
+                    <div className={classes.itemContainer}>
+                        <div className={classes.productItems}>
+                            <div className={classes.productItem}>
+                                <div className={classes.productBg}>
+                                </div>
+                                <img className={classes.productImage} src={product.image} alt='#' />
+
+                                <div className={classes.productText}>
+                                    <h4 className={classes.productHeader}>{product.name}</h4>
+                                    <p>{product.desc}</p>
+                                    <p className={classes.productPrice}>${product.price}</p>
+                                    <Button className={classes.productBtn}>Buy Now</Button>
+                                    {/* <Button className={classes.productBtn} onClick={()=>(window.location.href=`/order/${product.id}`)}>Buy Now</Button> */}
+
+                                </div>
+
+                            </div>
+
+                            {/* <div className={classes.productItem}>
+                                <div className={classes.productBg}>
+                                </div>
+                                <img className={classes.productImage1} src={Cosmetic7} />
+
+
+                                <div className={classes.productText}>
+                                <h4 className={classes.productHeader}></h4>
+                                    <p></p>
+                                    <p className={classes.productPrice}></p>
+                                    <Button className={classes.productBtn}>Buy Now</Button>
+
+                                </div>
+
+                            </div>
+
+                            <div className={classes.productItem}>
+                                <div className={classes.productBg}>
+                                </div>
+                                <img className={classes.productImage2} src={Cosmetic6} />
+
+                                <div className={classes.productText}>
+                                <h4 className={classes.productHeader}></h4>
+                                    <p></p>
+                                    <p className={classes.productPrice}>/p>
+                                    <Button className={classes.productBtn}>Buy Now</Button>
+                                </div>
+
+                            </div> */}
                         </div>
-                        <img className={classes.productImage} src={Cosmetic5} />
-
-                        <div className={classes.productText}>
-                            <h4 className={classes.productHeader}>Face Care</h4>
-                            <p>A very functional face care product</p>
-                            <p className={classes.productPrice}>$129.00</p>
-                            <Button className={classes.productBtn}>Buy Now</Button>
-
-                        </div>
-
-                    </div>
-
-                    <div className={classes.productItem}>
-                        <div className={classes.productBg}>
-                        </div>
-                        <img className={classes.productImage1} src={Cosmetic7} />
-
-                        <div className={classes.productText}>
-                        <h4 className={classes.productHeader}>Bath & Body</h4>
-                            <p>A very functional Bathing product</p>
-                            <p className={classes.productPrice}>$199.00</p>
-                            <Button className={classes.productBtn}>Buy Now</Button>
-
-                        </div>
-
-                    </div>
-
-                    <div className={classes.productItem}>
-                        <div className={classes.productBg}>
-                        </div>
-                        <img className={classes.productImage2} src={Cosmetic6} />
-
-                        <div className={classes.productText}>
-                        <h4 className={classes.productHeader}>Skin Care</h4>
-                            <p>A very functional skin product</p>
-                            <p className={classes.productPrice}>$219.00</p>
-                            <Button className={classes.productBtn}>Buy Now</Button>
-                        </div>
-
                     </div>
                 </div>
-          </div>
-        </div>
+            ))};
         </>
     )
 }

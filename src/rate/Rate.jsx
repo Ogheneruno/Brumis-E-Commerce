@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
 import Rating from '@material-ui/lab/Rating';
 
-import { Container, makeStyles, Box ,Typography } from '@material-ui/core';
+import { 
+  // Container, 
+  makeStyles, 
+  Box ,
+  // Typography
+} from '@material-ui/core';
 
 import './rate.css';
 
@@ -13,9 +18,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Rate() {
+export default function Rate({ value, setValue }) {
 
-    const [value, setValue] = useState(2);
+    // const [value, setValue] = useState(2);
 
     const classes = useStyles();
     return (
@@ -28,7 +33,7 @@ export default function Rate() {
                 setValue(newValue);
             }}
             />
-            <span className={classes.rateText}>29 Reviews</span>
+            {/* <span className={classes.rateText}>29 Reviews</span> */}
          </Box>
        </div>
         

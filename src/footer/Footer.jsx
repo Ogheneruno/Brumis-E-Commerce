@@ -2,9 +2,9 @@ import React from 'react';
 import './footer.css';
 import {
     Typography,
-    Paper, 
-    Button,
-    IconButton,
+    // Paper, 
+    // Button,
+    // IconButton,
     makeStyles,
     useTheme,
     useMediaQuery
@@ -41,7 +41,11 @@ const useStyles = makeStyles(theme => ({
     footerImages:{
         width: '300px',
         height: '200px',
-        marginLeft: '30px'
+        marginLeft: '30px',
+          [theme.breakpoints.down("xs")]:{
+            height: '100px'
+            
+        }
     },
     footerImg:{
         display: 'flex',
@@ -69,7 +73,11 @@ const useStyles = makeStyles(theme => ({
         gridGap: '80px',
         paddingTop: '200px',
         margin: 'auto',
-        color: 'white'
+        color: 'white',
+        [theme.breakpoints.down("xs")]:{
+            gridTemplateColumns: '1fr'
+            
+        }
     },
 
     footerLetter:{
@@ -107,11 +115,18 @@ const useStyles = makeStyles(theme => ({
     },
 
     footerSocial:{
-        textAlign: 'right'
+        textAlign: 'right',
+          [theme.breakpoints.down("xs")]:{
+            textAlign: 'left'
+        }
     },
     socialContainer:{
         display: 'flex',
         flexDirection: 'row-reverse',
+          [theme.breakpoints.down("xs")]:{
+            flexDirection: 'row'
+            
+        }
     },
 
     socialIcon:{
@@ -146,19 +161,19 @@ const Footer = () => {
             <div className={classes.footerBottom}>
                 <div className={classes.footerImg}>
                     <div className={classes.footerImages}>
-                        <img className="footerImage1" src={Cosmetic9} />
+                        <img className="footerImage1" src={Cosmetic9} alt='#' />
                     </div>
 
                     <div className={classes.footerImages}>
-                        <img className="footerImage1" src={Cosmetic11} />
+                        <img className="footerImage1" src={Cosmetic11} alt='#' />
                     </div>
 
                     <div className={classes.footerImages}>
-                        <img className="footerImage1" src={Cosmetic8} />
+                        <img className="footerImage1" src={Cosmetic8} alt='#'/>
                     </div>
 
                     <div className={classes.footerImages}>
-                        <img className="footerImage1" src={Cosmetic10} />
+                        <img className="footerImage1" src={Cosmetic10} alt='#' />
                     </div>
 
                 </div>

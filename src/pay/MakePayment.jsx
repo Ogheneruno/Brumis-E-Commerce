@@ -1,5 +1,7 @@
 import React from 'react';
 import './pay.css';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+
 
 
 const MakePayment = () => {
@@ -29,7 +31,7 @@ const MakePayment = () => {
                     
                 </div>
 
-                <button className="checkout" style={{marginBottom: '1.5rem'}}>CHECKOUT </button>
+                <button className="checkout" style={{marginBottom: '1.5rem'}}>CHECKOUT <span className="arrow"><ArrowRightAltIcon /></span></button>
 
             </div>
 

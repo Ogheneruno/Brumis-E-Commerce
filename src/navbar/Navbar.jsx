@@ -1,26 +1,31 @@
 import React, {useState, useEffect} from 'react';
-import Rate from '../rate/Rate';
-import Counter from '../counter/Counter';
-import Option from '../option/Option';
+// import Button from '@mui/material/Button';
+import MenuListComposition from '../navbar/MenuList';
+// import FadeMenu from '../fadeMenu/FadeMenu';
+import { useHistory} from 'react-router-dom';
 import {
-    alpha,
+    // alpha,
     AppBar,
-    Avatar, 
+    // Avatar,
     Toolbar, 
-    IconButton, 
+    // IconButton, 
     Typography, 
-    InputBase, 
+    // InputBase, 
     Badge, 
-    MenuItem, 
+    // MenuItem, 
     makeStyles,
-    Paper,
-    Box,
+    // Paper,
+    // Box,
     useTheme,
    useMediaQuery
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import { ShoppingCart, Search} from '@material-ui/icons';
-import EcoIcon from '@material-ui/icons/Eco';
 import DrawerComponent from "../Drawer";
+import { useSelector } from 'react-redux';
+
+
+
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -38,7 +43,8 @@ const useStyles = makeStyles(theme => ({
     },
 
     appbarSolid: {
-        backgroundColor: '#001e40'
+        backgroundColor: '#001e40',
+        color: 'white'
     },
 
     linkItems:{
@@ -46,10 +52,9 @@ const useStyles = makeStyles(theme => ({
     },
 
     linkItem:{
-        // color: 'black',
         marginLeft: '60px',
         cursor: 'pointer',
-    
+  
       '&:hover':{
         borderBottom: '1px solid #e791a1'
       }
@@ -61,12 +66,12 @@ const useStyles = makeStyles(theme => ({
              marginLeft: 'auto',
         },
         [theme.breakpoints.down("xs")]:{
-            marginLeft: '20px',
+            marginLeft: 'auto',
        }
     },
     searchIcon:{
         // color: 'black',
-        marginRight: '40px',
+        marginRight: '30px',
         [theme.breakpoints.down("md")]:{
             marginRight: '20px',
        }
@@ -78,20 +83,28 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("md")]:{
             marginRight: '20px',
        }
+    },
+    badge:{
+        width: '25px',
+        marginRight: '20px',
     }
 }))
 
 
 const Navbar = () => {
-
     const classes = useStyles();
-    const [count, setCount] = useState(1);
+    const history = useHistory();
     const [navBackground, setNavBackground] = useState('appbar');
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
     const navRef = React.useRef()
     navRef.current = navBackground;
+
+
+
+    const quantity = useSelector(state=>state.cart.quantity);
+
+
 
     useEffect(()=>{
         const handleScroll = () =>{
@@ -108,54 +121,69 @@ const Navbar = () => {
         }
     }, []);
 
-    const handleIncrement = () => {
-        setCount( (add) => add + 1);
-    };
-
-    const handleDecrement = () =>{
-        setCount( (sub) => sub - 1);
-        
-    };
-
     return (
         <div>
             <AppBar className={classes[navRef.current]}>
                 <Toolbar className={classes.toolbar}>
-                    <Typography className={classes.type} variant="h6" noWrap>
-                        BRUMIS
-                    </Typography>
+                    <Link to="/" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                        <Typography className={classes.type} variant="h6" noWrap>
+                            BRUMIS
+                        </Typography>
+                    </Link>
                     {isMobile ? (
                     <DrawerComponent />
                     ) : (
                     <div className={classes.linkItems}>
                         <div className={classes.linkItem}>
-                            <Typography className={classes.linkText}>Home</Typography>
+                            <Link to="/" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                                <Typography className={classes.linkText}> 
+                                    Home
+                                </Typography> 
+                            </Link>
                         </div>
 
                         <div className={classes.linkItem}>
-                            <Typography className={classes.linkText}>About</Typography>
+                            <Link to="/about" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                                <Typography className={classes.linkText}>
+                                    About
+                                </Typography>
+                            </Link>
                         </div>
 
                         <div className={classes.linkItem}>
-                            <Typography className={classes.linkText}>Shop</Typography>
+                            <Link to="/shop" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                                <Typography className={classes.linkText}>
+                                    Shop
+                                </Typography>
+                            </Link>
                         </div>
 
                         <div className={classes.linkItem}>
-                            <Typography className={classes.linkText}>Blog</Typography>
+                            <Link to="/blog" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                                <Typography className={classes.linkText}>
+                                    Blog
+                                </Typography>
+                            </Link>
                         </div>
 
                         <div className={classes.linkItem}>
-                            <Typography className={classes.linkText}>Contact</Typography>
+                            <Link to="/contact" style={{ textDecoration: "none", color: 'inherit', pointer: 'cursor' }}>
+                                <Typography className={classes.linkText}>
+                                    Contact
+                                </Typography>
+                            </Link>
                         </div>
                     </div>
                             )}
 
                     <div className={classes.linkIcon}>
                         <Search className={classes.searchIcon} />
-                        <Badge className={classes.badge}>
-                            <ShoppingCart className={classes.cart} />
-                        </Badge>
-                        <Avatar />
+                        <Link to="/pay" style={{ color: 'inherit' }}>
+                            <Badge className={classes.badge} badgeContent={quantity}>
+                                <ShoppingCart className={classes.cart} />
+                            </Badge>
+                        </Link>
+                        <MenuListComposition />
                     </div>
                 </Toolbar>
             </AppBar>
