@@ -18,13 +18,13 @@ const Contact = () => {
                                 <a href="/#" className="contact-link" target="_blank">brumiscosmetics@gmail.com</a>
                             </div>
                             <div className="contact-text"><i class="fab fa-github"></i>
-                                <a href="https://github.com/deviator53" className="contact-link">https://github.com</a>
+                                <a href="https://github.com/ogheneruno" className="contact-link">https://github.com</a>
                             </div>
                             <div className="contact-text"><i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/david-bradford-651769160/" className="contact-link">https://www.linkedin.com</a>
+                                <a href="https://www.linkedin.com/in/ogefere-ogheneruno/" className="contact-link">https://www.linkedin.com</a>
                             </div>
                             <div className="contact-text"><i class="fas fa-phone"></i>
-                                <a href="/#" className="contact-link">07032145887</a>
+                                <a href="/#" className="contact-link">08162623101</a>
                             </div>
                             <div className="contact-text"><i class="fas fa-map-marker-alt"></i>
                                 <a href="/#" className="contact-link">MKK Plaza, Jabi, Abuja. </a>

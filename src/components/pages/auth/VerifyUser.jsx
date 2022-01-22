@@ -47,7 +47,7 @@ const VerifyUser = () => {
         secretToken: secretToken.current.value,
       }
       try{
-        let res = await axios.post('http://localhost:9000/api/v1/auth/confirm-user', user);
+        let res = await axios.post('https://brumiscusmetics-api.herokuapp.com/api/v1/auth/confirm-user', user);
         if(res.data.success) toast.success(res.data.msg);
         history.push('/login');
         console.log(res);
